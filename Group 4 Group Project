@@ -1,0 +1,27 @@
+import os
+import random
+
+def calculate_score(num_correct, num_questions):
+    score = (num_correct / num_questions) * 100
+    print(f"You got {num_correct} out of {num_questions} questions right.")
+    print(f"Your score is {score:.2f}%.")
+    return score
+
+def clear_terminal():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+def get_user_details():
+    name = input("Please enter your name: ")
+    return name
+
+def display_welcome_message(name):
+    print(f"\nWelcome, {name}! Let's start the quiz.\n")
+
+def display_question(question_data, question_number):
+    question, options, _, hint = question_data
+    print(f"(Q{question_number}). {question}")
+    option_labels = ['A', 'B', 'C', 'D']
+    for idx, option in enumerate(options):
+        print(f"{option_labels[idx]}. {option}")
+    return hint
+
